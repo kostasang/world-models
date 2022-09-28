@@ -1,7 +1,9 @@
-*/results/*
-!*/results/.gitkeep
-*/models/*
-!*/models/.gitkeep
+results/*
+!results/.gitkeep
+models/*
+!models/.gitkeep
+data/*
+!data/.gitkeep
 gym-duckietown
 .vscode/
 

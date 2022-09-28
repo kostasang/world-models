@@ -1,0 +1,8 @@
+data:
+  train_set: 'data/sequence_set_1'
+  validation_set: 'data/sequence_set_2'
+model:
+  n_z: 64
+training:
+  train_batch_size: 32
+  val_batch_size: 256
