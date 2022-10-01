@@ -14,7 +14,8 @@ def train_v_model(
     loss_functions,
     epochs: int,
     evaluation_steps: int,
-    plotting_epochs: int
+    plotting_epochs: int,
+    best_model_path: str
 ):
     """
     Implements training loop for the V-Model
@@ -23,6 +24,7 @@ def train_v_model(
     #device = next(model.parameters()).device
     model.train()
     global_step = 0
+    best_score = 999999
     for epoch in tqdm(range(epochs)):
         training_step = 0
         sum_loss = 0
@@ -51,6 +53,9 @@ def train_v_model(
                     commit=True,
                     step=global_step
                 )
+                if validation_loss < best_score:
+                    best_score = validation_loss
+                    torch.save(model.state_dict(), best_model_path)
         if epoch % plotting_epochs == 0:
             image_batch = next(iter(validation_dataloader))
             image_batch = image_batch[:50]

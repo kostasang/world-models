@@ -11,8 +11,10 @@ from torch.optim import Adam
 if __name__ == "__main__":
 
     configs = load_configurations(path='configs/training_vmodel.yaml')
-    wandb.init(project=configs.wandb.project)
-    wandb.config = {**configs.model, **configs.training}
+    wandb.init(
+        project=configs.wandb.project,
+        config={**configs.model, **configs.training}
+    )
 
     train_dataset = ImageDataset(storage_folder=configs.data.train_set)
     val_dataset = ImageDataset(storage_folder=configs.data.validation_set)
@@ -25,6 +27,11 @@ if __name__ == "__main__":
     l2_loss = nn.MSELoss() 
     kl_loss = nn.KLDivLoss()
 
+    wandb.watch(
+        models=model,
+        log='all'
+    )
+
     train_v_model(
         model=model,
         train_dataloader=train_loader,
@@ -33,5 +40,6 @@ if __name__ == "__main__":
         loss_functions=[l2_loss, kl_loss],
         epochs=configs.training.epochs,
         evaluation_steps=configs.training.evaluation_steps,
-        plotting_epochs=configs.plotting.epochs
+        plotting_epochs=configs.plotting.epochs,
+        best_model_path=configs.saving.model_path
     )
