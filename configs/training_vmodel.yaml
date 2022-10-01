@@ -2,7 +2,14 @@ data:
   train_set: 'data/sequence_set_1'
   validation_set: 'data/sequence_set_2'
 model:
-  n_z: 64
+  n_z: 128
 training:
-  train_batch_size: 32
+  train_batch_size: 16
   val_batch_size: 256
+  lr: 0.0005
+  epochs: 50
+  evaluation_steps: 25
+wandb:
+  project: 'World-models'
+plotting:
+  epochs: 5

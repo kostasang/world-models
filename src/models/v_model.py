@@ -9,6 +9,7 @@ class VModel(nn.Module):
 
     def __init__(self, n_z=64):
         """Initializes VAE"""
+        super(VModel, self).__init__()
         self.encoder = VisualEncoder(n_z=n_z)
         self.decoder = VisualDecoder(n_z=n_z)
         # TODO: sample latent vector using Gausian distribution
