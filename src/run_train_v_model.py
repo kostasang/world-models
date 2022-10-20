@@ -10,28 +10,36 @@ from torch.optim import Adam
 
 if __name__ == "__main__":
 
+    # Load configs file
     configs = load_configurations(path='configs/training_vmodel.yaml')
     wandb.init(
         project=configs.wandb.project,
         config={**configs.model, **configs.training}
     )
-
+    # Prepare datasets and dataloaders
     train_dataset = ImageDataset(storage_folder=configs.data.train_set)
     val_dataset = ImageDataset(storage_folder=configs.data.validation_set)
-    
-    train_loader = DataLoader(dataset=train_dataset, batch_size=configs.training.train_batch_size, shuffle=True)
-    val_loader = DataLoader(dataset=val_dataset, batch_size=configs.training.val_batch_size, shuffle=False)
-
+    train_loader = DataLoader(
+        dataset=train_dataset, 
+        batch_size=configs.training.train_batch_size, 
+        shuffle=True
+    )
+    val_loader = DataLoader(
+        dataset=val_dataset, 
+        batch_size=configs.training.val_batch_size, 
+        shuffle=False
+    )
+    # Prepare training ingridietns
     model = VModel(n_z=configs.model.n_z)
     optimizer = Adam(params=model.parameters(), lr=configs.training.lr)
     l2_loss = nn.MSELoss() 
     kl_loss = nn.KLDivLoss()
-
+    # Log model to WANDB
     wandb.watch(
         models=model,
         log='all'
     )
-
+    # Perform training
     train_v_model(
         model=model,
         train_dataloader=train_loader,

@@ -16,7 +16,7 @@ def train_v_model(
     evaluation_steps: int,
     plotting_epochs: int,
     best_model_path: str
-):
+) -> None:
     """
     Implements training loop for the V-Model
     """
@@ -65,7 +65,6 @@ def train_v_model(
                 reconstructed_images=predicted_images.cpu().detach().permute((0,2,3,1)).numpy(),
                 epoch=epoch
             )
-
 
 @torch.inference_mode()
 def evaluate_model(
