@@ -1,0 +1,23 @@
+data:
+  train_set: 'data/sequence_set_1'
+  validation_set: 'data/sequence_set_2'
+  encoder_path: 'models/best_v_model.pt'
+saving:
+  model_path: models/best_m_model.pt
+model:
+  input_dim: 129  # encoded state dim + 1 for the concatenated action
+  num_lstm_layers: 2
+  hidden_size: 512
+  dropout: 0.2
+  output_dim: 128
+training:
+  train_batch_size: 16
+  val_batch_size: 16
+  lr: 0.001
+  epochs: 20
+  evaluation_steps: 20
+wandb:
+  project: 'World-models'
+  name: 'm-model-attempt-3'
+plotting:
+  epochs: 1
