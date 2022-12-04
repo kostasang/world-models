@@ -14,7 +14,7 @@ In order to install repo run the following commands:
 ```
 git clone https://github.com/kostasang/world-models.git
 cd world-models
-conda create -y --name world-models python==3.8
+conda create -y --name world-models python==3.7
 conda activate world-models
 pip3 install -e .
 ```
