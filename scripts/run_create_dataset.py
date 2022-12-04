@@ -1,7 +1,7 @@
 import os, numpy as np
 from tqdm import tqdm
-from environment.utils import load_environment
-from utils.configs import load_configurations
+from world_models.environment.utils import load_environment
+from world_models.utils.configs import load_configurations
 
 if __name__ == "__main__":
 

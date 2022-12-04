@@ -2,10 +2,10 @@ import wandb
 import torch.nn as nn
 
 from torch.utils.data import DataLoader
-from models.v_model import VModel
-from datasets.image_dataset import ImageDataset
-from training.v_trainer import train_v_model
-from utils.configs import load_configurations
+from world_models.models.v_model import VModel
+from world_models.datasets.image_dataset import ImageDataset
+from world_models.training.v_trainer import train_v_model
+from world_models.utils.configs import load_configurations
 from torch.optim import Adam
 
 if __name__ == "__main__":

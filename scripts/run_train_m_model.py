@@ -2,11 +2,11 @@ import torch, wandb
 import torch.nn as nn
 from torch.utils.data import DataLoader
 from torch.optim import Adam
-from datasets.sequence_dataset import SequenceDataset
-from models.v_model import VModel
-from models.m_model import MModel
-from utils.configs import load_configurations
-from training.m_trainer import train_m_model
+from world_models.datasets.sequence_dataset import SequenceDataset
+from world_models.models.v_model import VModel
+from world_models.models.m_model import MModel
+from world_models.utils.configs import load_configurations
+from world_models.training.m_trainer import train_m_model
 
 if __name__ == "__main__":
     
