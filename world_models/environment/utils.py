@@ -1,5 +1,5 @@
 from gym_duckietown.simulator import Simulator
-from environment.wrappers import DtRewardWrapper, DiscreteWrapper
+from world_models.environment.wrappers import DtRewardWrapper, DiscreteWrapper
 
 def load_environment(
     map_name='loop_pedestrians',

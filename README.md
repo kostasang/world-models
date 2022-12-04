@@ -31,7 +31,7 @@ Run the scripts with `python3 scripts/script_name.py`
 
 In order to create dataset using DuckieTown environment, a proper Docker image must be created and run. To do this execute the `duckietown_env.sh` script. After that, create a virtual display running:
 
-1. `Xvfb :0 -screen 0 1024x768x24 -ac +extension GLX +render -noreset &> xvfb.log`
+1. `Xvfb :0 -screen 0 1024x768x24 -ac +extension GLX +render -noreset &> xvfb.log &`
 2. `export DISPLAY=:0`
 
 Afterwards, every script that regards DuckieTown can be run without problem.
