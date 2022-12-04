@@ -7,6 +7,5 @@ COPY configs /workspace/configs
 COPY requirements.in /workspace/
 COPY setup.py /workspace/
 
-RUN ls world_models
 RUN pip install --upgrade pip && \
     pip3 install -e .
