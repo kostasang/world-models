@@ -1,0 +1,18 @@
+data:
+  train_set: 'data/sequence_set_1'
+  validation_set: 'data/sequence_set_2'
+saving:
+  model_path: models/best_v_model.pt
+model:
+  n_z: 128
+training:
+  train_batch_size: 16
+  val_batch_size: 256
+  lr: 0.001
+  epochs: 10
+  evaluation_steps: 100
+wandb:
+  project: 'World-models'
+plotting:
+  epochs: 1
+

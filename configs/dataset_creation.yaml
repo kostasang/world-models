@@ -1,0 +1,14 @@
+environment:
+  map_name: 'loop_empty'
+  camera_width: 64
+  camera_height: 64
+  draw_curve: True
+  max_steps: 3500
+  distortion: False
+  domain_rand: False
+  accept_start_angle_deg: 4
+  seed: Null
+dataset:
+  n_sequencies: 50
+  min_seq_size: 20
+  storage_folder: 'data/sequence_set_2'
